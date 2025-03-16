@@ -1,0 +1,11 @@
+[data-task-list-id] {
+    min-width: 400px;
+}
+
+body[data-collapsed="true"] [data-parent-task-id] {
+    display: none;
+}
+
+body[data-collapsed="false"] [data-parent-task-id] {
+    display: unset;
+}

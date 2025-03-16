@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Google Tasks",
+  "version": "1.0",
+  "description": "An extension that adds a custom element to webpages.",
+  "permissions": ["scripting"],
+  "host_permissions": [
+    "<all_urls>",
+    "https://tasks.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://calendar.google.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    },
+    {
+      "matches": [
+        "https://tasks.google.com/*"
+      ],
+      "js": ["common.js"],
+      "css": ["tasks.google.css"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}
